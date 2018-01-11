@@ -1,0 +1,18 @@
+{
+  "name": "@oyang/block",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/oychao/block.git",
+  "author": "Ouyang Chao <chao@ouyang.io>",
+  "license": "WTFPL",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.1.0",
+    "mocha-sinon": "^2.0.0",
+    "sinon": "^4.1.4"
+  }
+}
