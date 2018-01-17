@@ -1,9 +1,9 @@
 const crypto = require('crypto');
 
+difficulty = 3;
+
 class Block {
     constructor(data, index = 0, prevHash = 'Ouyang') {
-        this.difficulty = 3;
-
         this.index = index;
         this.prevHash = prevHash;
         this.data = data;
@@ -25,7 +25,7 @@ class Block {
     }
 
     validDiffculty(hash) {
-        for (let i = 0; i < this.difficulty; i++) {
+        for (let i = 0; i < difficulty; i++) {
             if (hash.charAt(i) !== '0') {
                 return false;
             }

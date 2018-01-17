@@ -1,5 +1,8 @@
-const Block = require('./src/block');
+const BlockChain = require('./src/chain');
 
-const b0 = new Block('this is a test');
+const bc = new BlockChain();
 
-console.log(b0);
+bc.mineBlock('second');
+bc.mineBlock('third');
+
+bc.print();
