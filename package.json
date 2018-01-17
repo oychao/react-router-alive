@@ -6,9 +6,12 @@
   "author": "Ouyang Chao <chao@ouyang.io>",
   "license": "WTFPL",
   "scripts": {
+    "start": "node index.js",
     "test": "mocha"
   },
-  "dependencies": {},
+  "dependencies": {
+    "fast-sha256": "^1.1.0"
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^4.1.0",
