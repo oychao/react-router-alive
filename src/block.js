@@ -1,32 +1,32 @@
 const crypto = require('crypto');
 
-difficulty = 3;
+difficulty = 5;
 
 class Block {
-    constructor(data, index = 0, prevHash = 'Ouyang') {
-        this.index = index;
-        this.prevHash = prevHash;
-        this.data = data;
-        this.timestamp = new Date().getTime();
+    constructor(miner, data, prevBlock = {
+        index: -1,
+        hash: 'Hello Block Chain'
+    }) {
+        this.payload = { miner, data };
         this.nonce = 0;
-        this.hash = this.calcHash();
+        this.prevBlock = prevBlock;
+        this.calcHash();
     }
 
-    calcHash() {
-        let hash = '';
-        while (!this.validDiffculty(hash)) {
-            this.nonce++;
-            hash = crypto
-                .createHash("sha256")
-                .update(this.index + this.prevHash + this.timestamp + this.data + this.nonce)
-                .digest("hex");
-        }
-        return hash;
+    calcHash(prevBlock) {
+        this.prevBlock = prevBlock || this.prevBlock;
+        this.index = this.prevBlock.index + 1;
+        this.prevHash = this.prevBlock.hash;
+        this.timestamp = new Date().getTime();
+        this.hash = crypto
+            .createHash("sha256")
+            .update(this.index + this.prevHash + this.timestamp + this.miner + this.data + ++this.nonce)
+            .digest("hex");
     }
 
-    validDiffculty(hash) {
+    validDiffculty() {
         for (let i = 0; i < difficulty; i++) {
-            if (hash.charAt(i) !== '0') {
+            if (this.hash.charAt(i) !== '0') {
                 return false;
             }
         }

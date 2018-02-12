@@ -1,18 +1,37 @@
 const Block = require('./block');
 
-class BlockChain {
-    constructor() {
-        this.chain = [];
-        this.chain.push(this.prevBlock = new Block('hello_block_chain'));
+class Chain {
+    constructor(blocks) {
+        if (blocks) {
+            this.blocks = blocks;
+            this.prevBlock = blocks[blocks.length - 1];
+        } else {
+            this.blocks = [];
+            const block = new Block('Genesis Block', 'hello_block_chain');
+            while (!block.validDiffculty()) {
+                block.calcHash();
+            }
+            this.blocks.push(block);
+        }
     }
 
-    mineBlock(data) {
-        this.chain.push(this.prevBlock = new Block(data, this.chain.length, this.prevBlock.hash));
+    isValidBlock(block) {
+        const prev = this.prevBlock;
+        return prev.hash === block.prevHash && prev.index === block.index - 1;
+    }
+
+    accept(block) {
+        if (this.isValidBlock(block)) {
+            this.prevBlock = block;
+            this.blocks.push(this.prevBlock);
+        } else {
+            throw new Error('conflict block happend');
+        }
     }
 
     print() {
-        this.chain.forEach(b => void console.log(b));
+        this.blocks.forEach(b => void console.log(b));
     }
 }
 
-module.exports = BlockChain;
+module.exports = Chain;
