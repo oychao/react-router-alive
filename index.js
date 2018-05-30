@@ -1,3 +1,3 @@
-import sayHello from './src/main';
+import fn from './src/index';
 
-sayHello();
+export default fn;

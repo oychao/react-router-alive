@@ -4,7 +4,7 @@ export default [
         output: [
             {
                 file: 'bin/bundle.js',
-                format: 'umd'
+                format: 'cjs'
             }
         ],
         plugins: [],

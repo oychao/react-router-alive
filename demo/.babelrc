@@ -1,0 +1,15 @@
+{
+    "presets": [
+        "@babel/preset-env",
+        [
+            "@babel/preset-stage-0",
+            {
+                "decoratorsLegacy": true
+            }
+        ]
+    ],
+    "plugins": [
+        "react-hot-loader/babel",
+        "@babel/plugin-transform-react-jsx"
+    ]
+}
