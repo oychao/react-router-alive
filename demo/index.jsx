@@ -9,8 +9,8 @@ import App from './src/components/App';
 import './style.less';
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App.view />
-    </Provider>,
-    document.getElementById('root')
+  <Provider store={store}>
+    <App.view />
+  </Provider>,
+  document.getElementById('root')
 );

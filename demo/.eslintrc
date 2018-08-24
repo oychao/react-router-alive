@@ -11,6 +11,6 @@
         "comma-dangle": [1, "never"],
         "semi": [2, "always"],
         "quotes": [2, "single"],
-        "indent": [2, 4]
+        "indent": [2, 2]
     }
 }
