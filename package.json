@@ -26,18 +26,18 @@
     "prepare": "npm run build"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "babel-preset-env": "^1.7.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^7.0.0-beta.3",
+    "babel-preset-env": "^7.0.0-beta.3",
     "babel-register": "^7.0.0-beta.3",
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^9.0.0-beta.3",
     "chai": "^4.1.2",
-    "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.8.2",
+    "eslint": "^5.4.0",
+    "eslint-plugin-react": "^7.11.1",
     "mocha": "^5.2.0",
     "mocha-sinon": "^2.1.0",
-    "rollup": "^0.59.1",
-    "sinon": "^5.0.7"
+    "rollup": "^0.64.1",
+    "sinon": "^6.1.5"
   },
   "dependencies": {}
 }

@@ -4,8 +4,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 
-export default {
-  mode: 'development',
+const config = {
+  mode: process.env.NODE_ENV,
   entry: ['@babel/polyfill', 'react-hot-loader/patch', './index.jsx'],
   output: {
     publicPath: '/',
@@ -13,24 +13,25 @@ export default {
     filename: 'bundle.js'
   },
   resolve: {
-    modules: [
-      path.resolve('./src'),
-      path.resolve('./node_modules')
-    ],
+    modules: [path.resolve('./src'), path.resolve('./node_modules')],
     extensions: ['.js', '.json', '.jsx', '.css']
   },
   module: {
-    rules: [{
-      test: /\.(css|less)$/,
-      use: ['style-loader', 'css-loader', 'less-loader']
-    }, {
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      use: ['babel-loader']
-    }, {
-      test: /\.svg$/,
-      use: ['svg-inline-loader']
-    }]
+    rules: [
+      {
+        test: /\.(css|less)$/,
+        use: ['style-loader', 'css-loader', 'less-loader']
+      },
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
+      {
+        test: /\.svg$/,
+        use: ['svg-inline-loader']
+      }
+    ]
   },
   devtool: 'eval-source-map',
   devServer: {
@@ -40,10 +41,10 @@ export default {
     // progress: true
   },
   externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
-    'redux': 'Redux',
-    'react-redux': 'ReactRedux'
+    // react: 'React',
+    // 'react-dom': 'ReactDOM',
+    // redux: 'Redux',
+    // 'react-redux': 'ReactRedux'
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
@@ -57,3 +58,19 @@ export default {
     new webpack.HotModuleReplacementPlugin()
   ]
 };
+
+if(process.env.NODE_ENV === 'production') {
+  config.mode = 'production';
+  config.devtool = 'source-map';
+  [new webpack.optimize.UglifyJsPlugin({
+    sourceMap: true,
+    compress: {
+      warnings: false
+    }
+  }),
+  new webpack.LoaderOptionsPlugin({
+    minimize: true
+  })].forEach(plugin => void (config.plugins.push(plugin)));
+}
+
+export default config;
