@@ -1,8 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { hot } from 'react-hot-loader';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from 'react-router-dom';
 
 import * as actions from './actions';
+
+import Foo from '../Foo';
+import Bar from '../Bar';
 
 import logo from './logo.svg';
 import './style.less';
@@ -20,22 +29,23 @@ class App extends React.Component {
   render() {
     const { count } = this.props;
     return (
-      <div className="App">
-        <header className="App-header">
-          <div
-            dangerouslySetInnerHTML={{ __html: logo }}
-            className="App-logo"
-          />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-                    To get started, edit{' '}
-          <code>src/components/App/view.jsx</code> and save to reload.
-        </p>
-        <div>
-          <h2>{count}</h2>
-          <button onClick={this.handleCount}>Click me!</button>
-        </div>
+      <div className="app">
+        <Router>
+          <div>
+            <ul>
+              <li>
+                <Link to="/foo">Foo</Link>
+              </li>
+              <li>
+                <Link to="/bar">Bar</Link>
+              </li>
+            </ul>
+            <hr />
+            <Route exact path="/" render={() => <Redirect to="/foo" />} />
+            <Route exact path="/foo" component={Foo.view} />
+            <Route exact path="/bar" component={Bar.view} />
+          </div>
+        </Router>
       </div>
     );
   }
@@ -51,4 +61,9 @@ const mapDispatchToProps = (dispatch, props) => ({
   handleCount: num => dispatch(actions.add(num))
 });
 
-export default hot(module)(connect(mapStateToProps, mapDispatchToProps)(App));
+export default hot(module)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);
