@@ -2,11 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { hot } from 'react-hot-loader';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Link,
   Redirect
 } from 'react-router-dom';
+
+import AliveRoute from 'react-keep-alive';
 
 import * as actions from './actions';
 
@@ -41,18 +43,25 @@ class App extends React.Component {
               </li>
             </ul>
             <hr />
-            <Route exact path="/" render={() => <Redirect to="/foo" />} />
-            <Route exact path="/foo" component={Foo.view} />
-            <Route exact path="/bar" component={Bar.view} />
+            <AliveRoute
+              exact
+              path="/"
+              render={() => {
+                return <Redirect to="/foo" />;
+              }}
+            />
+            <AliveRoute exact path="/foo" component={Foo.view} />
+            <AliveRoute exact path="/bar" component={Bar.view} />
           </div>
         </Router>
       </div>
     );
   }
-}
 
-// I don't think PropTypes is a good idea for type checks,
-// if you really need it, use flow or typescript instead
+  componentDidMount() {
+    // console.log(this._reactInternalFiber);
+  }
+}
 
 const mapStateToProps = (state, props) => ({
   count: state.count
