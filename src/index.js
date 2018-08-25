@@ -115,7 +115,10 @@ class Route extends React.Component {
     const location = this.props.location || route.location;
     const props = { match, location, history, staticContext };
 
-    if (component) return match ? React.createElement(component, props) : null;
+    // if (component) return match ? React.createElement(component, props) : null;
+    if (component) {
+      return React.createElement(component, props);
+    }
 
     if (render) return match ? render(props) : null;
 
@@ -125,6 +128,30 @@ class Route extends React.Component {
       return React.Children.only(children);
 
     return null;
+  }
+
+  updateDisplay() {
+    const componentInstance = this._reactInternalFiber.child;
+    const { match } = this.state;
+    if (
+      componentInstance &&
+      componentInstance.child &&
+      componentInstance.child.stateNode
+    ) {
+      if (match) {
+        componentInstance.child.stateNode.style.display = '';
+      } else {
+        componentInstance.child.stateNode.style.display = 'none';
+      }
+    }
+  }
+
+  componentDidUpdate() {
+    this.updateDisplay();
+  }
+
+  componentDidMount() {
+    this.updateDisplay();
   }
 }
 

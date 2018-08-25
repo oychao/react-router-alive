@@ -41,6 +41,7 @@ class App extends React.Component {
               <li>
                 <Link to="/bar">Bar</Link>
               </li>
+              <li></li>
             </ul>
             <hr />
             <AliveRoute
@@ -56,10 +57,6 @@ class App extends React.Component {
         </Router>
       </div>
     );
-  }
-
-  componentDidMount() {
-    // console.log(this._reactInternalFiber);
   }
 }
 
