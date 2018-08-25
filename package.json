@@ -19,10 +19,10 @@
     "bin/"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "cross-env NODE_ENV=production rollup -c",
     "lint": "eslint .",
     "fix": "eslint . --fix --ext .js",
-    "test": "mocha --require @babel/register test/**/*.spec.js",
+    "test": "cross-env NODE_ENV=test mocha --compilers @babel/register test/**/*.spec.js",
     "prepare": "npm run build"
   },
   "devDependencies": {
@@ -49,6 +49,7 @@
     "@babel/register": "7.0.0-beta.56",
     "babel-eslint": "^8.2.6",
     "chai": "^4.1.2",
+    "cross-env": "^5.2.0",
     "eslint": "^5.4.0",
     "eslint-plugin-react": "^7.11.1",
     "mocha": "^5.2.0",
