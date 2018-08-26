@@ -8,7 +8,7 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import AliveRoute from 'react-keep-alive';
+import AliveRoute from 'react-router-alive';
 
 import * as actions from './actions';
 

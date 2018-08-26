@@ -1,8 +1,8 @@
-# react-keep-alive
+# react-router-alive
 
 A keep-alive route component for react-router.
 
-[![Build Status](https://travis-ci.org/oychao/react-keep-alive.svg?branch=master)](https://travis-ci.org/oychao/react-keep-alive)
+[![Build Status](https://travis-ci.org/oychao/react-router-alive.svg?branch=master)](https://travis-ci.org/oychao/react-router-alive)
 
 ## Why you need it
 
@@ -25,14 +25,14 @@ I assume you have a React project with `react-router` dependency installed.
 Install the dependency.
 
 ```javascript
-yarn add react-keep-alive
+yarn add react-router-alive
 ```
 
 Use the component in your project.
 
 ```javascript
 import { Route, Link } from 'react-router-dom';
-import AliveRoute as Route from 'react-keep-alive';
+import AliveRoute as Route from 'react-router-alive';
 
 import Foo from './Foo';
 import Bar from './Bar';
@@ -66,4 +66,4 @@ export default () => (
 
 [1]: https://github.com/ReactTraining/react-router
 [2]: https://github.com/facebook/react/issues/12039#issuecomment-359801971
-[3]: https://github.com/oychao/react-keep-alive/tree/master/demo
+[3]: https://github.com/oychao/react-router-alive/tree/master/demo

@@ -1,18 +1,18 @@
 {
-  "name": "react-keep-alive",
-  "version": "1.0.0",
+  "name": "react-router-alive",
+  "version": "1.0.0-beta.1",
   "main": "./bin/bundle.js",
   "author": {
     "name": "ouyang-chao",
     "email": "chao@ouyang.io"
   },
   "license": "WTFPL",
-  "repository": "https://github.com/oychao/react-keep-alive",
+  "repository": "https://github.com/oychao/react-router-alive",
   "keywords": [
     "react",
     "keep-alive"
   ],
-  "description": "A React.JS version of keep-alive",
+  "description": "A ReactJS version of keep-alive",
   "files": [
     "LICENSE.md",
     "README.md",
