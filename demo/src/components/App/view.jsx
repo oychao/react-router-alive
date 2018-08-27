@@ -1,21 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { hot } from 'react-hot-loader';
-import {
-  HashRouter as Router,
-  Route,
-  Link,
-  Redirect
-} from 'react-router-dom';
+import { HashRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
-import AliveRoute from 'react-router-alive';
-
-import * as actions from './actions';
+import { AliveRoute } from 'react-router-alive';
 
 import Foo from '../Foo';
 import Bar from '../Bar';
 
-import logo from './logo.svg';
 import './style.less';
 
 class App extends React.Component {
@@ -36,12 +27,16 @@ class App extends React.Component {
           <div>
             <ul>
               <li>
-                <Link to="/foo">Foo</Link>
+                <Link to="/foo" replace>
+                  Foo
+                </Link>
               </li>
               <li>
-                <Link to="/bar">Bar</Link>
+                <Link to="/bar" replace>
+                  Bar
+                </Link>
               </li>
-              <li></li>
+              <li />
             </ul>
             <hr />
             <AliveRoute
@@ -60,16 +55,4 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state, props) => ({
-  count: state.count
-});
-const mapDispatchToProps = (dispatch, props) => ({
-  handleCount: num => dispatch(actions.add(num))
-});
-
-export default hot(module)(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(App)
-);
+export default hot(module)(App);

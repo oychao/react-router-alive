@@ -1,6 +1,6 @@
 {
   "name": "react-router-alive",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "main": "./bin/bundle.js",
   "author": {
     "name": "ouyang-chao",
@@ -12,7 +12,7 @@
     "react",
     "keep-alive"
   ],
-  "description": "A ReactJS version of keep-alive",
+  "description": "A keep-alive route component for react-router",
   "files": [
     "LICENSE.md",
     "README.md",
