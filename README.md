@@ -10,11 +10,11 @@ You may don't want to unmount a route component when switching to another one.
 
 ## How it works
 
-A `AliveRoute` component is provided to work in with [react-router][1], the component will be mounted despite of the route is matched or not.
+A `AliveRoute` component is provided to work in with [react-router][1], the target component will be mounted no matter the route is matched or not. However, the css `display` attribute of the target component will be set to `none` if route not matched, which means the `render` function in your target component can only return one root DOM element rather then a component, otherwise it will not work properly.
 
-However, the css `display` attribute of the target component will be set to `none` if route not matched, which means the `render` function in your target component can only return one root DOM element rather then a component, otherwise it will not work properly.
+Also, for now the package only support `"react": ">=16.0.0"` and `"react-router": ">=4.2.0"`.
 
-The idea of setting `style={{display: 'none'}}` to realise this is from [Dan Abramov][2].
+The idea of setting `style={{display: 'none'}}` to realise this is from [here][2].
 
 ## How to use
 
@@ -31,8 +31,8 @@ yarn add react-router-alive
 Use the component in your project.
 
 ```javascript
-import { Route, Link } from 'react-router-dom';
-import AliveRoute as Route from 'react-router-alive';
+import { Router, Link } from 'react-router-dom';
+import { AliveRoute } from 'react-router-alive';
 
 import Foo from './Foo';
 import Bar from './Bar';
@@ -52,8 +52,8 @@ export default () => (
           </li>
           <li />
         </ul>
-        <Route exact path="/foo" component={Foo} />
-        <Route exact path="/bar" component={Bar} />
+        <AliveRoute exact path="/foo" component={Foo} />
+        <AliveRoute exact path="/bar" component={Bar} />
       </div>
     </Router>
   </div>
