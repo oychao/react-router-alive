@@ -1,3 +1,3 @@
-import fn from './src/index';
+import AliveRoute from './src/index';
 
-export default fn;
+export default { AliveRoute };
