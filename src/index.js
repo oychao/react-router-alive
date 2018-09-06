@@ -151,7 +151,6 @@ class Route extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this);
     this.updateDisplay();
   }
 
