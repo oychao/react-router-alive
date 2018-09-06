@@ -138,6 +138,10 @@ class Route extends React.Component {
       componentInstance.child &&
       componentInstance.child.stateNode
     ) {
+      warning(
+        componentInstance.child.sibling !== null,
+        'You should not use fragment tag or (an array) as the root tag in your <Route component>; only the first child is effective'
+      );
       if (match) {
         componentInstance.child.stateNode.style.display = '';
       } else {
@@ -147,6 +151,7 @@ class Route extends React.Component {
   }
 
   componentDidUpdate() {
+    console.log(this);
     this.updateDisplay();
   }
 
