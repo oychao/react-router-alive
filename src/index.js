@@ -139,7 +139,7 @@ class Route extends React.Component {
       componentInstance.child.stateNode
     ) {
       warning(
-        componentInstance.child.sibling !== null,
+        componentInstance.child.sibling === null,
         'You should not use fragment tag or (an array) as the root tag in your <Route component>; only the first child is effective'
       );
       if (match) {
