@@ -2,6 +2,7 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import { HashRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
+// run "npm link ../" in demo directory
 import { AliveRoute } from 'react-router-alive';
 
 import Foo from '../Foo';

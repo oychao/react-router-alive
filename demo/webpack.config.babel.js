@@ -37,7 +37,8 @@ const config = {
   devServer: {
     contentBase: './dist',
     hot: true,
-    open: true
+    open: true,
+    host: '0.0.0.0'
     // progress: true
   },
   externals: {
