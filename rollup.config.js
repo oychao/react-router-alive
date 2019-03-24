@@ -11,9 +11,7 @@ export default [
     ],
     plugins: [
       babel({
-        exclude: 'node_modules/**',
-        externalHelpers: true,
-        plugins: ['@babel/external-helpers']
+        exclude: 'node_modules/**'
       })
     ],
     external: [
@@ -21,9 +19,7 @@ export default [
       'path',
       'jsonfile',
       'path-to-regexp',
-      'prop-types',
       'react',
-      'react-is',
       'react-router',
       'tiny-invariant',
       'tiny-warning'

@@ -1,6 +1,4 @@
 import React from 'react';
-import { isValidElementType } from 'react-is';
-import PropTypes from 'prop-types';
 import invariant from 'tiny-invariant';
 import warning from 'tiny-warning';
 import { matchPath, __RouterContext as RouterContext } from 'react-router';
