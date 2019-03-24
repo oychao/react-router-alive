@@ -20,11 +20,13 @@ export default [
       'fs',
       'path',
       'jsonfile',
-      'invariant',
       'path-to-regexp',
       'prop-types',
       'react',
-      'warning'
+      'react-is',
+      'react-router',
+      'tiny-invariant',
+      'tiny-warning'
     ]
   }
 ];
