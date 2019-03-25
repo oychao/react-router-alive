@@ -1,5 +1,7 @@
 # react-router-alive
 
+>This package does **NOT** work any more and I'm still working on it for react-router is implemented with the new React Context now.
+
 A keep-alive route component for [react-router][1].
 
 [![Build Status](https://travis-ci.org/oychao/react-router-alive.svg?branch=master)](https://travis-ci.org/oychao/react-router-alive)
