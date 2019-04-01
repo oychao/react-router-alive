@@ -11,6 +11,11 @@ function isEmptyChildren(children) {
  * The public API for matching a single path and rendering.
  */
 class Route extends React.Component {
+  constructor(props) {
+    super(props);
+    this.wrapperRef = React.createRef();
+  }
+
   render() {
     return (
       <RouterContext.Consumer>
@@ -53,19 +58,15 @@ class Route extends React.Component {
             }
           }
 
-          // console.log(children, props.match, component, render);
-
           return (
             <RouterContext.Provider value={props}>
-              {children && !isEmptyChildren(children)
-                ? children
-                : props.match
-                  ? component
+              <div ref={this.wrapperRef} style={{ display: props.match ? 'block' : 'none' }} >
+                {children && !isEmptyChildren(children)
+                  ? children
+                  : component
                     ? React.createElement(component, props)
-                    : render
-                      ? render(props)
-                      : null
-                  : null}
+                    : null}
+              </div>
             </RouterContext.Provider>
           );
         }}

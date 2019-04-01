@@ -8,6 +8,7 @@ class Field extends React.PureComponent {
   constructor(props) {
     super(props);
     this.handleInput = this.handleInput.bind(this);
+    this.state = { val: 123 };
   }
 
   handleInput(e) {
@@ -20,6 +21,8 @@ class Field extends React.PureComponent {
       <div>
         <input type="text" onInput={this.handleInput} defaultValue={text} />
         <h4>{text}</h4>
+        <input type="text" onInput={(e) => { this.setState({ val: e.target.value }); }}/>
+        <h4>{this.state.val}</h4>
       </div>
     );
   }
