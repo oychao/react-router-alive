@@ -61,11 +61,7 @@ class Route extends React.Component {
           return (
             <RouterContext.Provider value={props}>
               <div ref={this.wrapperRef} style={{ display: props.match ? 'block' : 'none' }} >
-                {children && !isEmptyChildren(children)
-                  ? children
-                  : component
-                    ? React.createElement(component, props)
-                    : null}
+                {component ? React.createElement(component, props) : null}
               </div>
             </RouterContext.Provider>
           );
