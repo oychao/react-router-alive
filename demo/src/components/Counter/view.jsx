@@ -18,8 +18,9 @@ class Counter extends React.PureComponent {
     const { count } = this.props;
     return (
       <div>
-        <h2>{count}</h2>
+        <h3>This component use <span style={{ color: 'red' }}>state from redux</span></h3>
         <button onClick={this.handleCount}>Click me!</button>
+        <h4>{count}</h4>
       </div>
     );
   }
