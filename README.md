@@ -1,10 +1,8 @@
 # react-router-alive
 
->This package does **NOT** work any more and I'm still working on it for react-router is implemented with the new React Context now.
-
 A keep-alive route component for [react-router][1].
 
-[![Build Status](https://travis-ci.org/oychao/react-router-alive.svg?branch=master)](https://travis-ci.org/oychao/react-router-alive)
+[![Build Status](https://travis-ci.org/oychao/react-router-alive.svg?branch=master)](https://travis-ci.org/oychao/react-router-alive) [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 
 ## Why you need it
 
@@ -62,7 +60,7 @@ export default () => (
 
 ## License
 
-[![](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net/)
+[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 
 [1]: https://github.com/ReactTraining/react-router
 [2]: https://github.com/facebook/react/issues/12039#issuecomment-359801971
