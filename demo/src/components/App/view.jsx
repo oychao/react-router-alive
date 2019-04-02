@@ -17,7 +17,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <h1>React</h1>
         <HashRouter>
           <div>
             <ul className="app__router">
@@ -29,7 +28,7 @@ class App extends React.Component {
               </li>
             </ul>
             <hr />
-            <AliveRoute exact path="/" render={() => <Redirect to="/counter" />} />
+            <Route exact path="/" render={() => <Redirect to="/counter" />} />
             <AliveRoute exact path="/counter" component={Counter.view} />
             <AliveRoute exact path="/field" component={Field.view} />
           </div>

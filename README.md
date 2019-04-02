@@ -1,10 +1,8 @@
 # react-router-alive
 
->This package does **NOT** work any more and I'm still working on it for react-router is implemented with the new React Context now.
-
 A keep-alive route component for [react-router][1].
 
-[![Build Status](https://travis-ci.org/oychao/react-router-alive.svg?branch=master)](https://travis-ci.org/oychao/react-router-alive)
+[![Build Status](https://travis-ci.org/oychao/react-router-alive.svg?branch=master)](https://travis-ci.org/oychao/react-router-alive) [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 
 ## Why you need it
 
@@ -12,25 +10,25 @@ You may don't want to unmount a route component when switching to another one.
 
 ## How it works
 
-A `AliveRoute` component is provided to work in with [react-router][1], the target component will be mounted no matter the route is matched or not. However, the css `display` attribute of the target component will be set to `none` if route not matched, which means the `render` function in your target component can only return one root DOM element rather then a component or an array, otherwise it will not work properly.
+A `AliveRoute` component is provided to work within [react-router][1], every target component of `AliveRoute` will be wrapped in a `div` element respectively, **which means your dom structure will be changed if you use this repository, and react-native is not supported for the moment**.
 
-Also, for now the package only support `"react": ">=16.0.0"` and `"react-router": ">=4.2.0"`.
+Despite the route being matched or not, all target components will be mounted, of which the css attribute `display` of all wrapper `div`s are set to `none` except the matched route.
+
+For now the package only support `"react": ">=16.8.4"` and `"react-router": ">=5.0.0"`.
 
 The idea of setting `style={{display: 'none'}}` to realise this is from [here][2].
 
 ## How to use
 
-The usage of `AliveRoute` is exactly the same with `Route` in [react-router][1], here is the [docs][3].
+`children`(wrapped JSX elements) and `render` attribute are not supported in `AliveRoute`, in which it is recommended to use `component` attribute to set a target route component, other basic usage of `AliveRoute` is almost the same with `Route` in [react-router][1], here is the [docs][3].
 
-Moreover, a [demo project][4] is provided above or you can follow the steps below.
-
-I assume you have a React project with `react-router` dependency installed, all you need to do is installing the dependency and using it in your project.
+A [demo project][4] is provided above or you can follow the steps below.
 
 ```javascript
 yarn add react-router-alive
 ```
 
-```javascript
+```jsx
 import { Router, Link } from 'react-router-dom';
 import { AliveRoute } from 'react-router-alive';
 
@@ -62,7 +60,7 @@ export default () => (
 
 ## License
 
-[![](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net/)
+[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 
 [1]: https://github.com/ReactTraining/react-router
 [2]: https://github.com/facebook/react/issues/12039#issuecomment-359801971
