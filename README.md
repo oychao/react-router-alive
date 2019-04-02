@@ -12,7 +12,9 @@ You may don't want to unmount a route component when switching to another one.
 
 ## How it works
 
-A `AliveRoute` component is provided to work within [react-router][1], every target component of `AliveRoute` will be wrapped in a `div` element respectively, **which means your dom structure will be changed if you use this repository**. Despite the route being matched or not, all target components will be mounted, of which the css attribute `display` of all wrappers `div` are set to `none` except the matched route.
+A `AliveRoute` component is provided to work within [react-router][1], every target component of `AliveRoute` will be wrapped in a `div` element respectively, **which means your dom structure will be changed if you use this repository, and react-native is not supported for the moment**.
+
+Despite the route being matched or not, all target components will be mounted, of which the css attribute `display` of all wrapper `div`s are set to `none` except the matched route.
 
 For now the package only support `"react": ">=16.8.4"` and `"react-router": ">=5.0.0"`.
 
@@ -28,7 +30,7 @@ A [demo project][4] is provided above or you can follow the steps below.
 yarn add react-router-alive
 ```
 
-```javascript
+```jsx
 import { Router, Link } from 'react-router-dom';
 import { AliveRoute } from 'react-router-alive';
 
