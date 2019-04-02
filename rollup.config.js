@@ -11,20 +11,18 @@ export default [
     ],
     plugins: [
       babel({
-        exclude: 'node_modules/**',
-        externalHelpers: true,
-        plugins: ['@babel/external-helpers']
+        exclude: 'node_modules/**'
       })
     ],
     external: [
       'fs',
       'path',
       'jsonfile',
-      'invariant',
       'path-to-regexp',
-      'prop-types',
       'react',
-      'warning'
+      'react-router',
+      'tiny-invariant',
+      'tiny-warning'
     ]
   }
 ];
