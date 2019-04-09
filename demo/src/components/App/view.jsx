@@ -29,8 +29,8 @@ class App extends React.Component {
             </ul>
             <hr />
             <Route exact path="/" render={() => <Redirect to="/counter" />} />
-            <AliveRoute exact path="/counter" component={Counter.view} />
-            <AliveRoute exact path="/field" component={Field.view} />
+            <AliveRoute exact path="/counter" component={Counter.view} activeClass="active" disactiveClass="disactive" />
+            <AliveRoute exact path="/field" component={Field.view} activeClass="active" disactiveClass="disactive" />
           </div>
         </HashRouter>
       </div>

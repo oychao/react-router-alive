@@ -14,7 +14,7 @@ class Field extends React.PureComponent {
     return (
       <div>
         <h3>This component use <span style={{ color: 'red' }}>internal state</span></h3>
-        <input type="text" value={val} onInput={(e) => { this.setState({ val: e.target.value }); }}/>
+        <input type="text" value={val} onChange={(e) => { this.setState({ val: e.target.value }); }}/>
         <h4>{val}</h4>
       </div>
     );
