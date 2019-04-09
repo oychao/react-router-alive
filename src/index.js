@@ -31,7 +31,7 @@ class Route extends React.Component {
 
           const props = { ...context, location, match };
 
-          let { children, component, render } = this.props;
+          let { children, component, render, activeClass, disactiveClass } = this.props;
 
           // Preact uses an empty array as children by
           // default, so use null if that's the case.
@@ -58,9 +58,12 @@ class Route extends React.Component {
             }
           }
 
+          const className = `${(props.match ? activeClass : disactiveClass) || ''}`;
+
           return (
             <RouterContext.Provider value={props}>
-              <div ref={this.wrapperRef} style={{ display: props.match ? 'block' : 'none' }} >
+              <div ref={this.wrapperRef} className={className}
+                style={{ display: props.match ? 'block' : 'none' }}>
                 {component ? React.createElement(component, props) : null}
               </div>
             </RouterContext.Provider>
@@ -70,26 +73,5 @@ class Route extends React.Component {
     );
   }
 }
-
-// TODO
-// updateDisplay() {
-//   const componentInstance = this._reactInternalFiber.child;
-//   const { match } = this.state;
-//   if (
-//     componentInstance &&
-//     componentInstance.child &&
-//     componentInstance.child.stateNode
-//   ) {
-//     warning(
-//       componentInstance.child.sibling === null,
-//       'You should not use fragment tag or (an array) as the root tag in your <Route component>; only the first child is effective'
-//     );
-//     if (match) {
-//       componentInstance.child.stateNode.style.display = '';
-//     } else {
-//       componentInstance.child.stateNode.style.display = 'none';
-//     }
-//   }
-// }
 
 export default Route;

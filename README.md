@@ -22,6 +22,8 @@ The idea of setting `style={{display: 'none'}}` to realise this is from [here][2
 
 `children`(wrapped JSX elements) and `render` attribute are not supported in `AliveRoute`, in which it is recommended to use `component` attribute to set a target route component, other basic usage of `AliveRoute` is almost the same with `Route` in [react-router][1], here is the [docs][3].
 
+For customization reasons, you can use property `activeClass` to set css class for the matched route component and `disactiveClass` to set css class for the others.
+
 A [demo project][4] is provided above or you can follow the steps below.
 
 ```javascript
@@ -50,8 +52,8 @@ export default () => (
           </li>
           <li />
         </ul>
-        <AliveRoute exact path="/foo" component={Foo} />
-        <AliveRoute exact path="/bar" component={Bar} />
+        <AliveRoute exact path="/foo" component={Foo} activeClass="active" disactiveClass="disactive" />
+        <AliveRoute exact path="/bar" component={Bar} activeClass="active" disactiveClass="disactive" />
       </div>
     </Router>
   </div>
