@@ -49,8 +49,8 @@ class Route extends React.Component {
                 warning(
                   false,
                   'You returned `undefined` from the `children` function of ' +
-                    `<Route${path ? ` path="${path}"` : ''}>, but you ` +
-                    'should have returned a React element or `null`'
+                  `<Route${path ? ` path="${path}"` : ''}>, but you ` +
+                  'should have returned a React element or `null`'
                 );
               }
 
