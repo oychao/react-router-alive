@@ -5,6 +5,7 @@ export default [
     input: './index.js',
     output: [
       {
+        exports: 'default',
         file: 'bin/bundle.js',
         format: 'cjs'
       }
